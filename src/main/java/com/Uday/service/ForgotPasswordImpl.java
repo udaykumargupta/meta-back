@@ -26,7 +26,12 @@ public class ForgotPasswordImpl implements ForgotPasswordService {
         } else {
             // 3. If it doesn't exist, CREATE a new one
             ForgotPasswordToken newToken = new ForgotPasswordToken();
+
             // ... sets properties ...
+            newToken.setOtp(otp);
+            newToken.setUser(user);
+            newToken.setSendTo(sendTo);
+            newToken.setVerificationType(verificationType);
             return forgotPasswordRepository.save(newToken);
         }
     }
